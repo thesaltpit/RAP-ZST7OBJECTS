@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Custom function group for my FM&apos;s</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZST7_CUSTOM_FGTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZST7_CUSTOM_FG</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZST7_ACCDATA_UPDATE</FUNCNAME>
+     <SHORT_TEXT>FM to update/Delete the Acc data in Unmanaged Scenario in RAP</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>LT_ACCHDR</PARAMETER>
+       <DBSTRUCT>ZST7ACCHDR_DFTUM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>LT_ACCITM</PARAMETER>
+       <DBSTRUCT>ZST7ACCITM_DFTUM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>LT_ACCHDR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Accouting Document Table for Unmanaged Scenario</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LT_ACCITM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Accouting Document Item Table for Unmanaged Scenario</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

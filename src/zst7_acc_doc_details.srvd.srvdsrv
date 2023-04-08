@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service definition for accounting document details'
+define service ZST7_ACC_DOC_DETAILS {
+  expose ZST7_ACCDOC_HDR;
+  expose ZST7_ACCDOC_ITM;
+  expose ZST7_ACCDOC_ALL;
+  expose ZST7_ACCDOC_ALL_CONS;
+  expose ZST7_DOCTYPE_DESC;
+}

@@ -1,0 +1,146 @@
+@Metadata.layer: #CORE
+@UI:{ 
+headerInfo:{ 
+//Header title - Accounting Documents on first screen and Accounting Document on the item screen
+        typeName: ' Document Details',
+        typeNamePlural: 'Accounting Documents',
+      title:{ 
+        value: 'compcd',
+        type: #STANDARD
+      },
+      description:{ 
+        value: 'compcdescr',
+        type: #STANDARD
+      }  
+    } 
+}
+
+@Search.searchable: true
+annotate view ZST7_ACCDOC_ALL
+    with 
+{
+
+ //For the detail page we add facets
+ @UI.facet: [
+ { 
+    id:'DocNumber',
+    type: #DATAPOINT_REFERENCE,
+    purpose: #HEADER,
+    targetQualifier: 'docnum'
+    //label: 'Document Number'
+ }, 
+ { 
+    id:'FiscalYear',
+    type: #DATAPOINT_REFERENCE,
+    purpose: #HEADER,
+    targetQualifier: 'fiscyr'
+ },
+ { 
+    id:'DocDate',
+    type: #DATAPOINT_REFERENCE,
+    purpose: #HEADER,
+    targetQualifier: 'docdate'
+ },
+ 
+ { 
+    id:'AccountingCollection',
+    type: #COLLECTION,
+    label: 'Accounting Data',
+    purpose: #STANDARD
+ },
+ 
+ { 
+    id:'AccountingData',
+    type: #FIELDGROUP_REFERENCE,
+    parentId: 'AccountingCollection',
+    purpose: #STANDARD,
+    targetQualifier: 'AccountingBasicData',
+    label: 'Accounting Information'
+ },
+ 
+ { 
+    id:'UserInformation',
+    type: #FIELDGROUP_REFERENCE,
+    parentId: 'AccountingCollection',
+    purpose: #STANDARD,
+    targetQualifier: 'UserInfo',
+    label: 'User Information'
+ },
+ 
+ { 
+    id:'AccountingItems',
+    type: #LINEITEM_REFERENCE,
+    label: 'Line Items',
+    purpose: #STANDARD,
+    targetElement: '_itemData'
+ }
+ 
+ ]
+
+    @UI.lineItem: [{ position: 10, importance: #HIGH, label: 'Company Code' }]
+    compcd;
+    @UI.lineItem: [{ position: 20, importance: #HIGH, label: 'Document Number' }]
+    @UI.selectionField: [{ position: 10 }]
+    @Consumption.valueHelpDefinition: [{entity:{ name: 'ZST7_ACCDOC_HDR',element: 'docno' } }]
+    @Search.defaultSearchElement: true
+    @Search.fuzzinessThreshold: 0.7
+    @Search.ranking: #HIGH
+    @UI.dataPoint:{ title: 'DocNumber' }
+    docnum;
+    @UI.lineItem: [{ position: 30, importance: #HIGH, label: 'Fiscal Year' }]
+    @UI.dataPoint:{ title: 'FiscalYear' }
+    fiscyr;
+    @UI.lineItem: [{ position: 40, importance: #HIGH, label: 'Header Text' }]
+    @Search.defaultSearchElement: true
+    @Search.fuzzinessThreshold: 0.7
+    @Search.ranking: #HIGH
+    //@UI.hidden: true
+    hdrtxt;
+//    @UI.lineItem: [{ position: 50, importance: #HIGH, label: 'Line Number' }]
+//    linenum;
+    @UI.lineItem: [{ position: 60, importance: #HIGH, label: 'Document Date' }]
+    @UI.dataPoint:{ title: 'DocDate' }
+    docdate;
+//    @UI.lineItem: [{ position: 70, importance: #HIGH, label: 'Posting Key' }]
+//    postkey;
+    
+//    @UI.lineItem: [{ position: 80, importance: #HIGH, label: 'Document Type' }]
+    @UI.fieldGroup: [{position: 10, label: 'Document Type', qualifier: 'AccountingBasicData' }]
+    doctype;
+//    @UI.lineItem: [{ position: 90, importance: #HIGH, label: 'Account Type' }]
+    @UI.fieldGroup: [{position: 20, label: 'Account Type', qualifier: 'AccountingBasicData' }]
+    acctype;
+//    @UI.lineItem: [{ position: 100, importance: #HIGH, label: 'Debit/Credit' }]
+//    dbcrindc;
+    
+//    @UI.lineItem: [{ position: 110, importance: #HIGH, label: 'Business Area' }]
+    @UI.fieldGroup: [{position: 30, label: 'Business Area', qualifier: 'AccountingBasicData' }]
+    bussarea;
+    
+    /*@UI.lineItem: [{ position: 90, importance: #HIGH, label: 'Company Code Description' }]
+    compcdescr;*/
+    @UI.lineItem: [{ position: 120, importance: #HIGH, label: 'Creator Name' }]
+    @UI.fieldGroup: [{position: 10, label: 'Creator ID', qualifier: 'UserInfo' }]
+    username;
+    @UI.lineItem: [{ position: 130, importance: #HIGH, label: 'Transaction Code' }]
+    @UI.fieldGroup: [{position: 20, label: 'Transaction Code', qualifier: 'UserInfo' }]
+    tcode;
+//    @UI.lineItem: [{ position: 140, importance: #HIGH, label: 'Reference Document' }]
+//    refdocno;
+//    @UI.lineItem: [{ position: 150, importance: #HIGH, label: 'Tax Code' }]
+//    taxcode;
+//    @UI.lineItem: [{ position: 160, importance: #HIGH, label: 'Amount' }]
+//    amt;
+//    @UI.lineItem: [{ position: 170, importance: #HIGH, label: 'Approval Required' }]
+//    isamountapproved;
+//    @UI.lineItem: [{ position: 180, importance: #HIGH, label: 'Currency' }]
+//    currcode;
+//    @UI.lineItem: [{ position: 190, importance: #HIGH, label: 'Cost Center' }]
+//    costcntr;
+//    @UI.lineItem: [{ position: 200, importance: #HIGH, label: 'Vendor' }]
+//    vendor;
+    
+    /* Associations */
+    //_itemData
+    
+}

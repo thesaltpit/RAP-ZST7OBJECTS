@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_NROB" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <ATTRIBUTES>
+    <OBJECT>ZST7ACCNUM</OBJECT>
+    <DTELSOBJ>BUKRS</DTELSOBJ>
+    <YEARIND>X</YEARIND>
+    <DOMLEN>CHAR10</DOMLEN>
+    <PERCENTAGE>10.0</PERCENTAGE>
+    <BUFFER>X</BUFFER>
+    <NOIVBUFFER>00000010</NOIVBUFFER>
+    <CHANGED_AT>20230404161111.74005</CHANGED_AT>
+    <CHANGED_BY>STUDENT071</CHANGED_BY>
+    <ENAME>STUDENT007</ENAME>
+    <EDATE>2023-03-31</EDATE>
+    <ETIME>13:42:29</ETIME>
+   </ATTRIBUTES>
+   <TEXT>
+    <LANGU>E</LANGU>
+    <OBJECT>ZST7ACCNUM</OBJECT>
+    <TXT>Number range for accounting document number</TXT>
+    <TXTSHORT>Number range for acc</TXTSHORT>
+    <ENAME>STUDENT007</ENAME>
+    <EDATE>2023-03-31</EDATE>
+    <ETIME>13:42:29</ETIME>
+   </TEXT>
+  </asx:values>
+ </asx:abap>
+</abapGit>
